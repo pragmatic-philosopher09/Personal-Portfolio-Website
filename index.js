@@ -106,8 +106,8 @@ const MediaMatrixData = [
 ];
 
 const SocialLinksData = [
-  { platform: "LinkedIn", url: "https://www.linkedin.com/in/priyanshumohanty/", iconKey: "linkedin" },
-  { platform: "Instagram", url: "https://instagram.com/priyanshu.mohanty", iconKey: "instagram" }
+  { platform: "LinkedIn", url: "https://www.linkedin.com/in/priyanshu-mohanty-73347b1b6/", iconKey: "linkedin" },
+  { platform: "Instagram", url: "https://www.instagram.com/primo.hanty/", iconKey: "instagram" }
 ];
 
 /* ═══════════════════════════════════════════════════════════
