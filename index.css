@@ -52,78 +52,80 @@
   /* ── Adaptive colour tokens ── */
   color-scheme: light dark;
 
-  /* Premium Base: Soft pearl & Midnight slate */
-  --canvas:         light-dark(#F8FAFC, #0B0F17);
-  --ambient-glow:   light-dark(rgba(96, 165, 250, 0.12), rgba(59, 130, 246, 0.15));
+  /* Premium Base: Alabaster & Onyx */
+  --canvas:         light-dark(#F5F3EF, #121110);
+  --ambient-glow:   light-dark(rgba(212, 196, 168, 0.25), rgba(189, 167, 133, 0.12));
   
   /* Text */
-  --text-primary:   light-dark(#0F172A, #F8FAFC);
-  --text-secondary: light-dark(#475569, #94A3B8);
-  --text-tertiary:  light-dark(#94A3B8, #475569);
+  --text-primary:   light-dark(#2E2A25, #EFECE6);
+  --text-secondary: light-dark(#5C554D, #A39E96);
+  --text-tertiary:  light-dark(#8F877D, #66615A);
   
-  /* Accent */
-  --accent:         light-dark(#2563EB, #60A5FA);
-  --accent-muted:   light-dark(rgba(37, 99, 235, 0.08), rgba(96, 165, 250, 0.12));
+  /* Accent (Champagne / Muted Gold) */
+  --accent:         light-dark(#9C8262, #C3B091);
+  --accent-muted:   light-dark(rgba(156, 130, 98, 0.12), rgba(195, 176, 145, 0.12));
   
-  /* Translucent Surfaces to let ambient glow through */
-  --surface:        light-dark(rgba(255, 255, 255, 0.7), rgba(15, 23, 42, 0.6));
-  --surface-hover:  light-dark(rgba(255, 255, 255, 1), rgba(30, 41, 59, 0.8));
+  /* Stronger Translucent Surfaces for Glassmorphism */
+  --surface:        light-dark(rgba(255, 255, 255, 0.4), rgba(30, 28, 26, 0.4));
+  --surface-hover:  light-dark(rgba(255, 255, 255, 0.6), rgba(45, 42, 39, 0.5));
   
   /* Refined Borders */
-  --border:         light-dark(rgba(15, 23, 42, 0.06), rgba(248, 250, 252, 0.08));
-  --border-strong:  light-dark(rgba(15, 23, 42, 0.12), rgba(248, 250, 252, 0.15));
+  --border:         light-dark(rgba(46, 42, 37, 0.06), rgba(239, 236, 230, 0.06));
+  --border-strong:  light-dark(rgba(46, 42, 37, 0.12), rgba(239, 236, 230, 0.12));
 
   /* Container treatment – soft elevated shadows vs crisp borders */
   --container-shadow: light-dark(
-    0 8px 30px rgba(15, 23, 42, 0.04),
+    0 8px 30px rgba(46, 42, 37, 0.04),
     0 8px 30px rgba(0, 0, 0, 0.4)
   );
   --container-border: light-dark(
-    1px solid rgba(15, 23, 42, 0.04),
-    1px solid rgba(248, 250, 252, 0.06)
+    1px solid rgba(255, 255, 255, 0.6),
+    1px solid rgba(239, 236, 230, 0.04)
   );
 
   /* Glassmorphism */
+  --glass-filter: blur(16px) saturate(180%);
   --glass-bg: light-dark(
-    rgba(255, 255, 255, 0.75),
-    rgba(15, 23, 42, 0.75)
+    rgba(255, 255, 255, 0.5),
+    rgba(30, 28, 26, 0.5)
   );
   --glass-border: light-dark(
-    rgba(255, 255, 255, 0.5),
-    rgba(248, 250, 252, 0.08)
+    rgba(255, 255, 255, 0.8),
+    rgba(239, 236, 230, 0.08)
   );
   --glass-shadow: light-dark(
-    0 8px 32px rgba(15, 23, 42, 0.05),
+    0 8px 32px rgba(46, 42, 37, 0.05),
     0 8px 32px rgba(0, 0, 0, 0.3)
   );
 
   /* Scrollbar */
-  --scrollbar-thumb: light-dark(#CBD5E1, #334155);
-  --scrollbar-track: light-dark(#F1F5F9, #0F172A);
+  --scrollbar-thumb: light-dark(#D4CDA8, #3A3733);
+  --scrollbar-track: light-dark(#F5F3EF, #121110);
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 /* ── Fallback for browsers without light-dark() ── */
 @media (prefers-color-scheme: dark) {
   :root {
-    --canvas: #0B0F17;
-    --ambient-glow: rgba(59, 130, 246, 0.15);
-    --text-primary: #F8FAFC;
-    --text-secondary: #94A3B8;
-    --text-tertiary: #475569;
-    --accent: #60A5FA;
-    --accent-muted: rgba(96, 165, 250, 0.12);
-    --surface: rgba(15, 23, 42, 0.6);
-    --surface-hover: rgba(30, 41, 59, 0.8);
-    --border: rgba(248, 250, 252, 0.08);
-    --border-strong: rgba(248, 250, 252, 0.15);
+    --canvas: #121110;
+    --ambient-glow: rgba(189, 167, 133, 0.12);
+    --text-primary: #EFECE6;
+    --text-secondary: #A39E96;
+    --text-tertiary: #66615A;
+    --accent: #C3B091;
+    --accent-muted: rgba(195, 176, 145, 0.12);
+    --surface: rgba(30, 28, 26, 0.4);
+    --surface-hover: rgba(45, 42, 39, 0.5);
+    --border: rgba(239, 236, 230, 0.06);
+    --border-strong: rgba(239, 236, 230, 0.12);
     --container-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-    --container-border: 1px solid rgba(248, 250, 252, 0.06);
-    --glass-bg: rgba(15, 23, 42, 0.75);
-    --glass-border: rgba(248, 250, 252, 0.08);
+    --container-border: 1px solid rgba(239, 236, 230, 0.04);
+    --glass-filter: blur(16px) saturate(180%);
+    --glass-bg: rgba(30, 28, 26, 0.5);
+    --glass-border: rgba(239, 236, 230, 0.08);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    --scrollbar-thumb: #334155;
-    --scrollbar-track: #0F172A;
+    --scrollbar-thumb: #3A3733;
+    --scrollbar-track: #121110;
   }
 }
 
@@ -488,6 +490,8 @@ body::before {
   padding: var(--space-md);
   border-radius: var(--radius-lg);
   background: var(--surface);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
   border: var(--container-border);
   box-shadow: var(--container-shadow);
   text-decoration: none;
@@ -846,6 +850,8 @@ body::before {
   padding: var(--space-md);
   border-radius: var(--radius-lg);
   background: var(--surface);
+  backdrop-filter: var(--glass-filter);
+  -webkit-backdrop-filter: var(--glass-filter);
   border: var(--container-border);
   box-shadow: var(--container-shadow);
   text-decoration: none;
