@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- MANDATORY: Declare support for both light and dark themes -->
+  <meta name="color-scheme" content="light dark">
+
+  <!-- FOUC prevention: restore persisted theme before first paint -->
+  <script>
+  {
+    const colorScheme = localStorage.getItem("color-scheme");
+    if (colorScheme) {
+      document.querySelector('meta[name="color-scheme"]').content = colorScheme;
+    }
+  }
+  </script>
+
+  <title>Priyanshu Mohanty — Data Engineering & Product Strategy</title>
+  <meta name="description" content="Portfolio of Priyanshu Mohanty — building scalable data foundations that power high-impact user products. Data engineer by trade, product manager by design.">
+
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <div id="app">
+    <!-- All content rendered dynamically from decoupled data via index.js -->
+    <section id="hero"></section>
+    <section id="case-studies"></section>
+    <section id="timeline"></section>
+    <section id="insights-matrix"></section>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
