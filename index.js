@@ -105,6 +105,11 @@ const MediaMatrixData = [
   }
 ];
 
+const SocialLinksData = [
+  { platform: "LinkedIn", url: "https://www.linkedin.com/in/priyanshumohanty/", iconKey: "linkedin" },
+  { platform: "Instagram", url: "https://instagram.com/priyanshu.mohanty", iconKey: "instagram" }
+];
+
 /* ═══════════════════════════════════════════════════════════
    THEME STATE MACHINE
    isDarkMode: boolean — single source of truth
@@ -169,7 +174,11 @@ const Icons = {
 
   research: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
 
-  pen: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>`
+  pen: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>`,
+  
+  linkedin: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>`,
+  
+  instagram: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`
 };
 
 /* Category → icon map for insights */
@@ -475,7 +484,21 @@ function renderInsightsMatrix(container) {
 function renderFooter(container) {
   const footer = document.createElement("footer");
   footer.className = "site-footer";
-  footer.innerHTML = `<p>${SiteMetadata.footerText} &copy; ${new Date().getFullYear()} ${SiteMetadata.name}</p>`;
+  
+  const socialsHtml = SocialLinksData.map(s => 
+    `<a href="${s.url}" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="${s.platform}">
+      ${Icons[s.iconKey]}
+    </a>`
+  ).join("");
+
+  footer.innerHTML = `
+    <div class="site-footer__content">
+      <div class="site-footer__socials">
+        ${socialsHtml}
+      </div>
+      <p class="site-footer__copy">${SiteMetadata.footerText} &copy; ${new Date().getFullYear()} ${SiteMetadata.name}</p>
+    </div>
+  `;
   container.appendChild(footer);
 }
 
